@@ -1,452 +1,383 @@
-import uuid
 import random
-import threading
+import uuid
+from datetime import datetime, timezone
 
-import streamlit as st
 import gspread
+import streamlit as st
 from google.oauth2.service_account import Credentials
 
-
-# --------------------------------------------------
-# PAGE CONFIGURATION
-# --------------------------------------------------
-
-st.set_page_config(
-    page_title="Marketing Campaign Effectiveness",
-    page_icon="📊",
-    layout="centered"
-)
-
-st.title("Marketing Campaign Effectiveness Analysis")
-st.write(
-    "This study examines consumer behaviour and the effectiveness "
-    "of different promotional strategies. Please answer honestly."
-)
-
-
-# --------------------------------------------------
-# GOOGLE SHEETS CONNECTION
-# --------------------------------------------------
+st.set_page_config(page_title="Marketing Campaign Effectiveness", page_icon="📊", layout="centered")
 
 SPREADSHEET_ID = "1jDAnymdh0bID9wa6B8e1T1OuDTganGvIxb7QfSaohYo"
 
-HEADERS = [
-    "respondent_id",
-    "age_group",
-    "platform",
-    "ad_frequency",
-    "promotion_preference",
-    "clicked_ad",
-    "ad_influence",
-    "purchased_after_ad",
-    "ignore_reason",
-    "condition",
-    "purchase_intention",
-    "offer_attractiveness",
-    "status"
-]
-
-AGE_TARGETS = {
-    "Below 18": 5,
+AGE_QUOTAS = {
+    "Under 18": 5,
     "18–22": 15,
     "23–30": 15,
-    "Above 30": 15
+    "31–45": 10,
+    "Above 45": 5,
 }
 
-PROMOTION_TARGETS = {
-    "Discount": 17,
-    "Cashback": 17,
-    "No Promotion": 16
+SURVEY_HEADERS = [
+    "respondent_id", "timestamp_utc", "age_group", "discovery_platform",
+    "ad_frequency", "online_product_category", "clicked_ad_3m",
+    "purchased_after_ad_3m", "purchase_ad_platform", "ad_trust",
+    "purchase_influence", "ad_ignore_reason", "discount_importance",
+    "preferred_promotion", "choose_promoted_product_likelihood",
+    "assigned_condition", "status"
+]
+
+EXPERIMENT_HEADERS = [
+    "respondent_id", "assigned_condition", "purchase_intention",
+    "offer_attractiveness", "value_for_money_confidence", "timestamp_utc"
+]
+
+PLATFORMS = [
+    "Instagram", "YouTube", "Google/Search",
+    "E-commerce apps (Amazon, Flipkart, etc.)", "Facebook", "Other"
+]
+
+CONDITIONS = {
+    "Discount": {
+        "title": "₹400 Immediate Discount",
+        "description": (
+            "The headphones have an original price of ₹2,000. You can buy them "
+            "now for ₹1,600 after an immediate ₹400 discount."
+        ),
+    },
+    "Cashback": {
+        "title": "₹400 Cashback",
+        "description": (
+            "The headphones cost ₹2,000. You pay ₹2,000 at checkout and receive "
+            "₹400 cashback to your original payment method within 7 days. "
+            "No additional purchase or minimum-spend condition applies."
+        ),
+    },
+    "No Promotion": {
+        "title": "No Promotional Offer",
+        "description": (
+            "The headphones cost ₹2,000. No discount, cashback, coupon, or other "
+            "promotional offer is available."
+        ),
+    },
 }
 
-# Helps coordinate quota checks among sessions on this one app process.
-# It does not provide a cross-server/database transaction.
-quota_lock = threading.Lock()
-
-
-@st.cache_resource
 def connect_to_sheets():
-    credentials = Credentials.from_service_account_info(
-        st.secrets["gcp_service_account"],
-        scopes=[
-            "https://www.googleapis.com/auth/spreadsheets",
-            "https://www.googleapis.com/auth/drive"
-        ]
-    )
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
 
-    client = gspread.authorize(credentials)
-    spreadsheet = client.open_by_key(SPREADSHEET_ID)
-
-    try:
-        response_sheet = spreadsheet.worksheet("Experiment Responses")
-    except gspread.WorksheetNotFound:
-        response_sheet = spreadsheet.add_worksheet(
-            title="Experiment Responses",
-            rows=1000,
-            cols=len(HEADERS)
+    if "gcp_service_account" in st.secrets:
+        credentials = Credentials.from_service_account_info(
+            dict(st.secrets["gcp_service_account"]), scopes=scopes
+        )
+    else:
+        credentials = Credentials.from_service_account_file(
+            "service_account.json", scopes=scopes
         )
 
-    if not response_sheet.row_values(1):
-        response_sheet.append_row(HEADERS)
-    elif response_sheet.row_values(1) != HEADERS:
-        raise ValueError(
-            "The headers in Experiment Responses do not match "
-            "the expected headers. Please check row 1."
-        )
+    spreadsheet = gspread.authorize(credentials).open_by_key(SPREADSHEET_ID)
 
-    return response_sheet
+    def get_or_create(title, headers, rows=1000):
+        try:
+            worksheet = spreadsheet.worksheet(title)
+        except gspread.WorksheetNotFound:
+            worksheet = spreadsheet.add_worksheet(
+                title=title, rows=rows, cols=len(headers)
+            )
 
+        first_row = worksheet.row_values(1)
+        if not first_row:
+            worksheet.append_row(headers)
+        elif first_row != headers:
+            raise ValueError(
+                f"Headers in worksheet '{title}' do not match this app's expected "
+                "columns. Back up your existing data before changing row 1. "
+                f"Expected: {headers}"
+            )
+        return worksheet
+
+    survey_ws = get_or_create("Survey Responses", SURVEY_HEADERS, 1000)
+    experiment_ws = get_or_create("Experiment Responses", EXPERIMENT_HEADERS, 1000)
+    return survey_ws, experiment_ws
+
+st.title("Marketing Campaign Effectiveness Analysis")
+st.write(
+    "This voluntary study examines online advertising behaviour, consumer trust, "
+    "price sensitivity, and responses to promotional offers."
+)
+st.caption(
+    "Please do not enter your name, email address, phone number, or other direct "
+    "identifying information. Responses are for academic research."
+)
 
 try:
-    sheet = connect_to_sheets()
-except Exception as e:
-    st.error("Could not connect to Google Sheets.")
-    st.error(str(e))
+    survey_ws, experiment_ws = connect_to_sheets()
+except Exception as exc:
+    st.error("Could not connect to Google Sheets. Check credentials, sharing permissions, and worksheet headers.")
+    st.code(str(exc))
     st.stop()
 
+def records_for_age_group(group):
+    try:
+        return sum(
+            1 for row in survey_ws.get_all_records()
+            if row.get("age_group") == group and row.get("status") == "Completed"
+        )
+    except Exception:
+        return 0
 
-# --------------------------------------------------
-# QUOTA HELPERS
-# --------------------------------------------------
+def quota_status():
+    return {group: (records_for_age_group(group), target) for group, target in AGE_QUOTAS.items()}
 
-def get_valid_records():
-    """Count both in-progress and completed responses."""
-    records = sheet.get_all_records()
-    return [
-        record for record in records
-        if record.get("status") in ("In progress", "Completed")
-    ]
-
-
-def get_counts(records):
-    age_counts = {group: 0 for group in AGE_TARGETS}
-    promotion_counts = {group: 0 for group in PROMOTION_TARGETS}
-
-    for record in records:
-        age = record.get("age_group")
-        condition = record.get("condition")
-
-        if age in age_counts:
-            age_counts[age] += 1
-
-        if condition in promotion_counts:
-            promotion_counts[condition] += 1
-
-    return age_counts, promotion_counts
-
-
-def choose_available_promotion(promotion_counts):
-    available = [
-        group for group, target in PROMOTION_TARGETS.items()
-        if promotion_counts[group] < target
-    ]
-
-    if not available:
-        return None
-
-    # Balance groups while respecting their maximum targets.
-    minimum_count = min(promotion_counts[group] for group in available)
-    least_filled = [
-        group for group in available
-        if promotion_counts[group] == minimum_count
-    ]
-    return random.choice(least_filled)
-
-
-def get_response_row(respondent_id):
-    ids = sheet.col_values(1)
-    matching_rows = [
-        index + 1
-        for index, value in enumerate(ids)
-        if value == respondent_id
-    ]
-    return matching_rows[-1] if matching_rows else None
-
-
-# --------------------------------------------------
-# SESSION STATE
-# --------------------------------------------------
-
-if "phase" not in st.session_state:
-    st.session_state.phase = 1
-
+if "page" not in st.session_state:
+    st.session_state.page = "survey"
 if "respondent_id" not in st.session_state:
     st.session_state.respondent_id = str(uuid.uuid4())
+if "survey_data" not in st.session_state:
+    st.session_state.survey_data = {}
+if "assigned_condition" not in st.session_state:
+    st.session_state.assigned_condition = None
 
-if "response_row" not in st.session_state:
-    st.session_state.response_row = None
+if st.session_state.page == "survey":
+    st.header("Part 1 — Consumer Behaviour Survey")
+    st.write("There are 12 core questions and one conditional follow-up. Most people finish in 3–5 minutes.")
 
-if "condition" not in st.session_state:
-    st.session_state.condition = None
+    with st.expander("Participant targets by age group"):
+        for group, (count, target) in quota_status().items():
+            st.write(f"**{group}:** {count}/{target}")
 
+    st.info(
+        "Participation is voluntary. If you are under 18, participate only if the "
+        "research team's consent and institutional requirements permit it."
+    )
 
-# --------------------------------------------------
-# PHASE 1: CONSUMER BEHAVIOUR SURVEY
-# --------------------------------------------------
-
-if st.session_state.phase == 1:
-    st.header("Part 1: Consumer Behaviour Survey")
-    st.caption("Please answer all questions before continuing.")
-
-    with st.form("survey_form"):
-        age_group = st.selectbox(
+    with st.form("consumer_survey"):
+        age_group = st.radio(
             "1. What is your age group?",
-            ["Select an option", "Below 18", "18–22", "23–30", "Above 30"],
-            index=0
+            ["Select an option", *AGE_QUOTAS.keys()],
         )
-
-        platform = st.selectbox(
-            "2. Which platform do you commonly use to discover products?",
-            ["Select an option", "Instagram", "YouTube", "Google/Search", "Email", "Other"],
-            index=0
+        discovery_platform = st.selectbox(
+            "2. Which platform do you most often use to discover or learn about products?",
+            ["Select an option", *PLATFORMS],
         )
-
-        ad_frequency = st.selectbox(
+        ad_frequency = st.radio(
             "3. How frequently do you encounter online advertisements?",
-            ["Select an option", "Rarely", "Sometimes", "Often", "Very often"],
-            index=0
+            ["Select an option", "Never", "Rarely", "Sometimes", "Often", "Very often"],
         )
-
-        promotion_preference = st.selectbox(
-            "4. Which promotional offer attracts you the most?",
-            ["Select an option", "Discount", "Cashback", "Coupons", "Free delivery", "Buy-one-get-one"],
-            index=0
-        )
-
-        clicked_ad = st.radio(
-            "5. Have you ever clicked on an online advertisement?",
-            ["Select an option", "Yes", "No"],
-            index=0
-        )
-
-        ad_influence = st.selectbox(
-            "6. How frequently do advertisements influence your shopping decisions?",
-            ["Select an option", "Never", "Rarely", "Sometimes", "Often", "Always"],
-            index=0
-        )
-
-        purchased_after_ad = st.radio(
-            "7. Have you ever purchased a product after seeing an advertisement?",
-            ["Select an option", "Yes", "No"],
-            index=0
-        )
-
-        ignore_reason = st.selectbox(
-            "8. What is the main reason you ignore advertisements?",
+        product_category = st.selectbox(
+            "4. Which type of product do you most frequently purchase online?",
             [
-                "Select an option",
-                "Irrelevant products",
-                "Lack of trust",
-                "No attractive offers",
-                "Too many advertisements",
-                "Other"
+                "Select an option", "Electronics", "Clothing and fashion",
+                "Food and groceries", "Beauty and personal care",
+                "Home and lifestyle", "Other / I rarely purchase online",
             ],
-            index=0
+        )
+        clicked_ad = st.radio(
+            "5. In the past three months, have you clicked on an online advertisement to learn more about a product?",
+            ["Select an option", "Yes", "No", "Not sure"],
+        )
+        purchased_after_ad = st.radio(
+            "6. In the past three months, have you purchased a product after seeing an online advertisement?",
+            ["Select an option", "Yes", "No", "Not sure"],
+        )
+        purchase_ad_platform = st.selectbox(
+            "6a. If yes, which platform did you see the advertisement on before purchasing?",
+            ["Select an option", *PLATFORMS, "Cannot remember"],
+            disabled=(purchased_after_ad != "Yes"),
+        )
+        ad_trust = st.radio(
+            "7. How much do you trust product information shown in online advertisements?",
+            [
+                "Select an option", "1 — Do not trust at all", "2 — Trust very little",
+                "3 — Neither trust nor distrust", "4 — Trust somewhat",
+                "5 — Trust completely",
+            ],
+        )
+        purchase_influence = st.selectbox(
+            "8. What most influences your decision to purchase a product after seeing an advertisement?",
+            [
+                "Select an option", "Price or discount", "Product quality and features",
+                "Customer reviews and ratings", "Brand reputation",
+                "Recommendation from friends or family", "The advertisement itself", "Other",
+            ],
+        )
+        ignore_reason = st.selectbox(
+            "9. What is the main reason you ignore an online advertisement?",
+            [
+                "Select an option", "The product is irrelevant to me",
+                "I do not trust the advertisement", "The price or offer is unattractive",
+                "I see too many advertisements", "I prefer researching products independently",
+                "Other",
+            ],
+        )
+        discount_importance = st.radio(
+            "10. How important is a discount when deciding whether to purchase a product?",
+            [
+                "Select an option", "1 — Not at all important",
+                "2 — Slightly important", "3 — Moderately important",
+                "4 — Very important", "5 — Extremely important",
+            ],
+        )
+        preferred_promotion = st.selectbox(
+            "11. Which promotional offer would most encourage you to consider purchasing a product?",
+            [
+                "Select an option", "Immediate price discount", "Cashback after purchase",
+                "Coupon or promo code", "Free delivery", "Buy-one-get-one offer",
+                "None of these",
+            ],
+        )
+        choose_promoted = st.radio(
+            "12. If two products were otherwise equally suitable, how likely would you be to choose the one with a promotional offer?",
+            [
+                "Select an option", "1 — Very unlikely", "2 — Unlikely",
+                "3 — Neither likely nor unlikely", "4 — Likely", "5 — Very likely",
+            ],
         )
 
-        survey_submitted = st.form_submit_button(
-            "Continue to Promotional Experiment"
-        )
+        consent = st.checkbox("I understand the study information and voluntarily agree to participate.")
+        submitted = st.form_submit_button("Submit survey and continue")
 
-    if survey_submitted:
+    if submitted:
         answers = {
             "Age group": age_group,
-            "Platform": platform,
-            "Advertisement frequency": ad_frequency,
-            "Promotion preference": promotion_preference,
-            "Clicked advertisement": clicked_ad,
-            "Advertisement influence": ad_influence,
-            "Purchased after advertisement": purchased_after_ad,
-            "Reason for ignoring advertisements": ignore_reason
+            "Discovery platform": discovery_platform,
+            "Ad frequency": ad_frequency,
+            "Product category": product_category,
+            "Clicked ad": clicked_ad,
+            "Purchased after ad": purchased_after_ad,
+            "Ad trust": ad_trust,
+            "Purchase influence": purchase_influence,
+            "Reason for ignoring ads": ignore_reason,
+            "Discount importance": discount_importance,
+            "Preferred promotion": preferred_promotion,
+            "Likelihood of choosing promoted product": choose_promoted,
         }
-
-        unanswered = [
-            question for question, answer in answers.items()
-            if answer == "Select an option"
-        ]
-
-        if unanswered:
-            st.error("Please answer all questions before continuing.")
-            for question in unanswered:
-                st.write(f"- {question}")
-
+        missing = [key for key, value in answers.items() if value == "Select an option"]
+        if purchased_after_ad == "Yes" and purchase_ad_platform == "Select an option":
+            missing.append("Platform where the advertisement was seen before purchasing")
+        if not consent:
+            st.error("Please confirm consent before participating.")
+        elif missing:
+            st.error("Please answer the following required questions: " + ", ".join(missing))
         else:
-            try:
-                # Quota check and row creation are coordinated within this
-                # running app process. In-progress rows reserve quota slots.
-                with quota_lock:
-                    records = get_valid_records()
-                    age_counts, promotion_counts = get_counts(records)
-
-                    total_count = len(records)
-                    if total_count >= sum(AGE_TARGETS.values()):
-                        st.error(
-                            "The study has reached its target of 50 responses. "
-                            "Thank you for your interest."
-                        )
-                        st.stop()
-
-                    if age_counts[age_group] >= AGE_TARGETS[age_group]:
-                        st.error(
-                            f"The target for the '{age_group}' age group "
-                            "has been reached. Please do not select a different "
-                            "age group unless it accurately describes your age."
-                        )
-                        st.stop()
-
-                    condition = choose_available_promotion(promotion_counts)
-                    if condition is None:
-                        st.error(
-                            "All promotional experiment groups have reached "
-                            "their targets. Response collection is closed."
-                        )
-                        st.stop()
-
-                    row = [
+            counts = quota_status()
+            current_count, target = counts[age_group]
+            if current_count >= target:
+                st.error(
+                    f"The target for '{age_group}' has been reached. Please contact the research team "
+                    "if you believe you should still participate."
+                )
+            else:
+                condition = random.choice(list(CONDITIONS.keys()))
+                st.session_state.assigned_condition = condition
+                st.session_state.survey_data = {
+                    "age_group": age_group,
+                    "discovery_platform": discovery_platform,
+                    "ad_frequency": ad_frequency,
+                    "online_product_category": product_category,
+                    "clicked_ad_3m": clicked_ad,
+                    "purchased_after_ad_3m": purchased_after_ad,
+                    "purchase_ad_platform": purchase_ad_platform if purchased_after_ad == "Yes" else "Not applicable",
+                    "ad_trust": int(ad_trust[0]),
+                    "purchase_influence": purchase_influence,
+                    "ad_ignore_reason": ignore_reason,
+                    "discount_importance": int(discount_importance[0]),
+                    "preferred_promotion": preferred_promotion,
+                    "choose_promoted_product_likelihood": int(choose_promoted[0]),
+                }
+                try:
+                    survey_ws.append_row([
                         st.session_state.respondent_id,
-                        age_group,
-                        platform,
-                        ad_frequency,
-                        promotion_preference,
-                        clicked_ad,
-                        ad_influence,
-                        purchased_after_ad,
-                        ignore_reason,
-                        condition,
-                        "",
-                        "",
-                        "In progress"
-                    ]
+                        datetime.now(timezone.utc).isoformat(),
+                        age_group, discovery_platform, ad_frequency, product_category,
+                        clicked_ad, purchased_after_ad,
+                        purchase_ad_platform if purchased_after_ad == "Yes" else "Not applicable",
+                        int(ad_trust[0]), purchase_influence, ignore_reason,
+                        int(discount_importance[0]), preferred_promotion, int(choose_promoted[0]),
+                        condition, "In progress",
+                    ], value_input_option="USER_ENTERED")
+                    st.session_state.page = "experiment"
+                    st.rerun()
+                except Exception as exc:
+                    st.error("Your survey could not be saved. Please contact the research team.")
+                    st.code(str(exc))
 
-                    sheet.append_row(row, value_input_option="USER_ENTERED")
-                    response_row = get_response_row(
-                        st.session_state.respondent_id
-                    )
-
-                    if response_row is None:
-                        st.error(
-                            "Your survey was saved, but the response row "
-                            "could not be located. Please contact the research "
-                            "team instead of submitting again."
-                        )
-                        st.stop()
-
-                    st.session_state.response_row = response_row
-                    st.session_state.condition = condition
-                    st.session_state.phase = 2
-
-                st.rerun()
-
-            except Exception as e:
-                st.error("Could not save your survey responses.")
-                st.error(str(e))
-
-
-# --------------------------------------------------
-# PHASE 2: PROMOTIONAL EXPERIMENT
-# --------------------------------------------------
-
-elif st.session_state.phase == 2:
-    st.header("Part 2: Promotional Experiment")
-    condition = st.session_state.condition
-
-    st.write("Imagine you are shopping online and see the following offer.")
-
-    if condition == "Discount":
-        st.subheader("Special Offer: ₹400 Discount")
-        st.info("You receive a ₹400 discount on your purchase.")
-    elif condition == "Cashback":
-        st.subheader("Special Offer: ₹400 Cashback")
-        st.info("You receive ₹400 cashback after your purchase.")
-    else:
-        st.subheader("Online Shopping")
-        st.info(
-            "You see the product advertised, but no promotional "
-            "offer is available."
-        )
-
+elif st.session_state.page == "experiment":
+    condition = st.session_state.assigned_condition
+    scenario = CONDITIONS[condition]
+    st.header("Part 2 — Promotional Experiment")
     st.write(
-        "Assume the product is relevant to your needs and its price is affordable."
+        "Imagine you are considering purchasing the same pair of wireless headphones. "
+        "Assume the product meets your needs. Read the assigned scenario and answer based on your own opinion."
     )
+    st.subheader(scenario["title"])
+    st.info(scenario["description"])
+    st.caption("Only one scenario is shown to each participant. Please answer based on the scenario above.")
 
     with st.form("experiment_form"):
         purchase_intention = st.radio(
-            "1. How likely are you to purchase the product?",
+            "13. How likely are you to purchase this product?",
             [
-                "Select an option",
-                "1 - Very unlikely",
-                "2 - Unlikely",
-                "3 - Neutral",
-                "4 - Likely",
-                "5 - Very likely"
+                "Select an option", "1 — Very unlikely", "2 — Unlikely",
+                "3 — Neither likely nor unlikely", "4 — Likely", "5 — Very likely",
             ],
-            index=0
         )
-
-        offer_attractiveness = st.radio(
-            "2. How attractive do you find this offer?",
+        if condition == "No Promotion":
+            attractiveness_prompt = "14. How attractive do you find this purchase option?"
+        else:
+            attractiveness_prompt = "14. How attractive do you find this offer?"
+        attractiveness = st.radio(
+            attractiveness_prompt,
             [
-                "Select an option",
-                "1 - Not attractive at all",
-                "2 - Slightly attractive",
-                "3 - Moderately attractive",
-                "4 - Very attractive",
-                "5 - Extremely attractive"
+                "Select an option", "1 — Not attractive at all",
+                "2 — Slightly attractive", "3 — Moderately attractive",
+                "4 — Very attractive", "5 — Extremely attractive",
             ],
-            index=0
         )
+        value_confidence = st.radio(
+            "15. How confident are you that this option provides good value for money?",
+            [
+                "Select an option", "1 — Not confident at all",
+                "2 — Slightly confident", "3 — Moderately confident",
+                "4 — Very confident", "5 — Extremely confident",
+            ],
+        )
+        submitted = st.form_submit_button("Finish and submit")
 
-        experiment_submitted = st.form_submit_button("Submit My Responses")
-
-    if experiment_submitted:
-        if (
-            purchase_intention == "Select an option"
-            or offer_attractiveness == "Select an option"
-        ):
-            st.error("Please answer both experiment questions.")
+    if submitted:
+        if "Select an option" in (purchase_intention, attractiveness, value_confidence):
+            st.error("Please answer all three questions.")
         else:
             try:
-                response_row = st.session_state.response_row
+                experiment_ws.append_row([
+                    st.session_state.respondent_id,
+                    condition,
+                    int(purchase_intention[0]),
+                    int(attractiveness[0]),
+                    int(value_confidence[0]),
+                    datetime.now(timezone.utc).isoformat(),
+                ], value_input_option="USER_ENTERED")
 
-                if response_row is None:
-                    st.error(
-                        "Your survey response could not be located. "
-                        "Please contact the research team."
+                survey_ids = survey_ws.col_values(1)
+                row_number = max(
+                    (i for i, value in enumerate(survey_ids, start=1)
+                     if value == st.session_state.respondent_id),
+                    default=None,
+                )
+                if row_number:
+                    survey_ws.update(
+                        range_name=f"Q{row_number}:Q{row_number}",
+                        values=[["Completed"]],
                     )
-                    st.stop()
-
-                purchase_score = int(purchase_intention[0])
-                attractiveness_score = int(offer_attractiveness[0])
-
-                with quota_lock:
-                    # Avoid updating an already completed response.
-                    current_status = sheet.cell(response_row, 13).value
-                    if current_status == "Completed":
-                        st.session_state.phase = 3
-                        st.rerun()
-
-                    sheet.update(
-                        range_name=f"K{response_row}:M{response_row}",
-                        values=[[
-                            purchase_score,
-                            attractiveness_score,
-                            "Completed"
-                        ]]
-                    )
-
-                st.session_state.phase = 3
+                st.session_state.page = "complete"
                 st.rerun()
+            except Exception as exc:
+                st.error("We could not save the experimental response. Please contact the research team.")
+                st.code(str(exc))
 
-            except Exception as e:
-                st.error("Could not save your experiment responses.")
-                st.error(str(e))
-
-
-# --------------------------------------------------
-# PHASE 3: COMPLETION
-# --------------------------------------------------
-
-elif st.session_state.phase == 3:
-    st.success("Thank you for participating!")
-    st.write("Your responses have been recorded successfully.")
+elif st.session_state.page == "complete":
+    st.success("Thank you! Your responses have been recorded.")
+    st.write("Your consumer survey and one randomly assigned promotional scenario have been submitted.")
     st.write("You may now close this page.")
