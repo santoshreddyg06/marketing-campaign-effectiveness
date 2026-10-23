@@ -199,6 +199,8 @@ def age_counts(survey_ws):
 
 
 def score_from_option(option):
+    if not option:
+        return ""
     return int(option[0])
 
 
@@ -259,8 +261,9 @@ if st.session_state.page == "survey":
     )
 
     with st.form("survey_form"):
+        st.caption("Note: Age group is the only required field; all other questions are optional.")
         age_group = st.selectbox(
-            "1. What is your age group?",
+            "1. What is your age group? * (Required)",
             list(AGE_QUOTAS.keys()),
             index=None,
             placeholder="Choose your age group",
@@ -378,27 +381,10 @@ if st.session_state.page == "survey":
         submitted = st.form_submit_button("Submit survey and continue")
 
     if submitted:
-        required = {
-            "Age group": age_group,
-            "Discovery platform": discovery_platform,
-            "Ad frequency": ad_frequency,
-            "Product category": product_category,
-            "Clicked advertisement": clicked_ad,
-            "Purchased after advertisement": purchased_after_ad,
-            "Advertising trust": ad_trust,
-            "Purchase influence": purchase_influence,
-            "Reason for ignoring advertisements": ignore_reason,
-            "Discount importance": discount_importance,
-            "Preferred promotion": preferred_promotion,
-            "Likelihood of choosing promoted product": choose_promoted,
-        }
-        missing = [name for name, value in required.items() if value is None]
-        if purchased_after_ad == "Yes" and not purchase_ad_platform:
-            missing.append("Purchase advertising platform")
         if not consent:
             st.error("Please confirm consent before continuing.")
-        elif missing:
-            st.error("Please answer: " + ", ".join(missing))
+        elif not age_group:
+            st.error("Please select your age group before continuing.")
         else:
             counts = age_counts(survey_ws)
             if counts[age_group] >= AGE_QUOTAS[age_group]:
@@ -411,21 +397,21 @@ if st.session_state.page == "survey":
             else:
                 survey_data = {
                     "age_group": age_group,
-                    "discovery_platform": discovery_platform,
-                    "ad_frequency": ad_frequency,
-                    "online_product_category": product_category,
-                    "clicked_ad_3m": clicked_ad,
-                    "purchased_after_ad_3m": purchased_after_ad,
+                    "discovery_platform": discovery_platform or "",
+                    "ad_frequency": ad_frequency or "",
+                    "online_product_category": product_category or "",
+                    "clicked_ad_3m": clicked_ad or "",
+                    "purchased_after_ad_3m": purchased_after_ad or "",
                     "purchase_ad_platform": (
                         purchase_ad_platform
-                        if purchased_after_ad == "Yes"
-                        else "Not applicable"
+                        if purchased_after_ad == "Yes" and purchase_ad_platform
+                        else ("Not applicable" if purchased_after_ad == "No" else "")
                     ),
                     "ad_trust": score_from_option(ad_trust),
-                    "purchase_influence": purchase_influence,
-                    "ad_ignore_reason": ignore_reason,
+                    "purchase_influence": purchase_influence or "",
+                    "ad_ignore_reason": ignore_reason or "",
                     "discount_importance": score_from_option(discount_importance),
-                    "preferred_promotion": preferred_promotion,
+                    "preferred_promotion": preferred_promotion or "",
                     "choose_promoted_product_likelihood": score_from_option(choose_promoted),
                 }
                 try:
@@ -510,61 +496,58 @@ elif st.session_state.page == "experiment":
         )
 
     if submitted:
-        if any(value is None for value in (purchase_intention, attractiveness, value_confidence)):
-            st.error("Please answer all three questions before continuing.")
+        st.session_state.experiment_responses.append(
+            {
+                "respondent_id": st.session_state.respondent_id,
+                "scenario_order": index + 1,
+                "scenario_condition": condition,
+                "purchase_intention": score_from_option(purchase_intention),
+                "offer_attractiveness": score_from_option(attractiveness),
+                "value_for_money_confidence": score_from_option(value_confidence),
+                "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            }
+        )
+        if index < 2:
+            st.session_state.scenario_index += 1
+            st.rerun()
         else:
-            st.session_state.experiment_responses.append(
-                {
-                    "respondent_id": st.session_state.respondent_id,
-                    "scenario_order": index + 1,
-                    "scenario_condition": condition,
-                    "purchase_intention": score_from_option(purchase_intention),
-                    "offer_attractiveness": score_from_option(attractiveness),
-                    "value_for_money_confidence": score_from_option(value_confidence),
-                    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-                }
-            )
-            if index < 2:
-                st.session_state.scenario_index += 1
-                st.rerun()
-            else:
-                try:
-                    # Append the three scenario records together after all are answered.
-                    rows = [
-                        [
-                            response["respondent_id"],
-                            response["scenario_order"],
-                            response["scenario_condition"],
-                            response["purchase_intention"],
-                            response["offer_attractiveness"],
-                            response["value_for_money_confidence"],
-                            response["timestamp_utc"],
-                        ]
-                        for response in st.session_state.experiment_responses
+            try:
+                # Append the three scenario records together after all are answered.
+                rows = [
+                    [
+                        response["respondent_id"],
+                        response["scenario_order"],
+                        response["scenario_condition"],
+                        response["purchase_intention"],
+                        response["offer_attractiveness"],
+                        response["value_for_money_confidence"],
+                        response["timestamp_utc"],
                     ]
-                    experiment_ws.append_rows(rows, value_input_option="USER_ENTERED")
+                    for response in st.session_state.experiment_responses
+                ]
+                experiment_ws.append_rows(rows, value_input_option="USER_ENTERED")
 
-                    respondent_ids = survey_ws.col_values(1)
-                    row_number = next(
-                        (
-                            row_index
-                            for row_index, value in enumerate(respondent_ids, start=1)
-                            if value == st.session_state.respondent_id
-                        ),
-                        None,
-                    )
-                    if row_number:
-                        # Status is column P in Survey Responses.
-                        survey_ws.update_cell(row_number, 16, "Completed")
+                respondent_ids = survey_ws.col_values(1)
+                row_number = next(
+                    (
+                        row_index
+                        for row_index, value in enumerate(respondent_ids, start=1)
+                        if value == st.session_state.respondent_id
+                    ),
+                    None,
+                )
+                if row_number:
+                    # Status is column P in Survey Responses.
+                    survey_ws.update_cell(row_number, 16, "Completed")
 
-                    st.session_state.page = "complete"
-                    st.rerun()
-                except Exception as exc:
-                    st.error(
-                        "Could not save all experiment responses. Do not refresh yet; "
-                        "please share this error with the project owner."
-                    )
-                    st.code(str(exc))
+                st.session_state.page = "complete"
+                st.rerun()
+            except Exception as exc:
+                st.error(
+                    "Could not save all experiment responses. Do not refresh yet; "
+                    "please share this error with the project owner."
+                )
+                st.code(str(exc))
 
 elif st.session_state.page == "complete":
     st.success("Thank you! Your responses have been recorded.")
