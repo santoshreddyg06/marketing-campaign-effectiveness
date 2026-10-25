@@ -691,6 +691,57 @@ add_callout("Cashback and immediate discounts differ in upfront payment requirem
 add_callout("Correlation and cross-tabulation demonstrate empirical associations, not causal proof that ad exposure or trust directly caused purchases.", "• Association is Not Causation: ")
 add_callout("Repeat the study across diverse product categories (groceries, electronics, luxury goods) with larger national consumer panels.", "• Generalization & Scope: ")
 
+# ==============================================================================
+# APPENDIX: FINAL QUESTIONNAIRE
+# ==============================================================================
+p_app = doc.add_paragraph()
+p_app.paragraph_format.space_before = Pt(8)
+p_app.paragraph_format.space_after = Pt(2)
+p_app.paragraph_format.keep_with_next = True
+r_app = p_app.add_run("Appendix: Final Questionnaire")
+r_app.font.name = 'Calibri'
+r_app.font.size = Pt(13)
+r_app.font.bold = True
+r_app.font.color.rgb = COLOR_PRIMARY
+
+add_p("The complete questionnaire was deployed as an interactive web application on Streamlit Community Cloud, interfaced with Google Sheets for automated telemetry capture. The survey is fully anonymous (no names or emails collected) and comprises 12 core survey questions, one conditional branching item (Question 6a), and three randomized experimental vignettes.")
+
+p_app_link = doc.add_paragraph()
+p_app_link.paragraph_format.space_before = Pt(2)
+p_app_link.paragraph_format.space_after = Pt(6)
+r_app_q = p_app_link.add_run("Live Questionnaire Web Application: ")
+r_app_q.font.size = Pt(9.5)
+r_app_q.font.bold = True
+r_app_q.font.color.rgb = COLOR_PRIMARY
+add_hyperlink(p_app_link, "https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/", "https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/", color_hex="1B4F72", font_size=Pt(9.5))
+
+add_h2("Part 1: General Consumer Behaviour Survey")
+add_callout("Under 18  |  18–22  |  23–30  |  31–45  |  Above 45  [Dropdown selection; sole required field for demographic quota enforcement]", "Q1. What is your age group? * (Required): ")
+add_callout("Instagram  |  YouTube  |  Google/Search  |  E-commerce apps (Amazon, Flipkart)  |  Facebook  |  Other", "Q2. Which platform do you most often use to discover or learn about products?: ")
+add_callout("Never  |  Rarely  |  Sometimes  |  Often  |  Very often", "Q3. How frequently do you encounter online advertisements?: ")
+add_callout("Electronics  |  Clothing and fashion  |  Food and groceries  |  Beauty and personal care  |  Home and lifestyle  |  Other", "Q4. Which type of product do you most frequently purchase online?: ")
+add_callout("Yes  |  No  |  Not sure", "Q5. In the past three months, have you clicked on an online advertisement to learn more about a product?: ")
+add_callout("Yes  |  No  |  Not sure", "Q6. In the past three months, have you purchased a product after seeing an online advertisement?: ")
+add_callout("Instagram  |  YouTube  |  Google/Search  |  E-commerce apps  |  Facebook  |  Other  |  Cannot remember  [Displayed conditionally if Q6 = Yes; recorded as 'Not applicable' otherwise]", "Q6a. If yes, which platform did you see the advertisement on before purchasing?: ")
+add_callout("1 – Do not trust at all  |  2 – Rarely trust  |  3 – Neutral / Moderate trust  |  4 – Mostly trust  |  5 – Trust completely", "Q7. How much do you trust product information shown in online advertisements?: ")
+add_callout("Price or discount  |  Product quality and features  |  Customer reviews and ratings  |  Brand reputation  |  Friends recommendation  |  The ad itself  |  Other", "Q8. What most influences your decision to purchase a product after seeing an advertisement?: ")
+add_callout("Irrelevant product  |  Do not trust the ad  |  Unattractive price  |  Too many ads  |  Prefer independent research  |  Other", "Q9. What is the main reason you ignore an online advertisement?: ")
+add_callout("1 – Not at all important  |  2 – Slightly important  |  3 – Moderately important  |  4 – Very important  |  5 – Extremely important", "Q10. How important is a discount when deciding whether to purchase a product?: ")
+add_callout("Immediate price discount  |  Cashback after purchase  |  Coupon code  |  Free delivery  |  Buy-one-get-one  |  None of these", "Q11. Which promotional offer would most encourage you to consider purchasing a product?: ")
+add_callout("1 – Very unlikely  |  2 – Unlikely  |  3 – Neither likely nor unlikely  |  4 – Likely  |  5 – Very likely", "Q12. If two products were otherwise equally suitable, how likely would you be to choose the one with a promotional offer?: ")
+
+add_h2("Part 2: Within-Subject Promotional Framing Experiment")
+add_p("Participants evaluate wireless headphones originally priced at Rs. 2,000 across three experimental framing conditions presented in randomized sequence:")
+add_callout("Imagine you are considering wireless headphones originally priced at Rs. 2,000. You receive an immediate Rs. 400 price discount at checkout, paying Rs. 1,600 immediately.", "• Scenario A (Immediate Discount): ")
+add_callout("Imagine you are considering wireless headphones originally priced at Rs. 2,000. You pay Rs. 2,000 at checkout and receive Rs. 400 cashback credited to your payment method within 7 days.", "• Scenario B (Post-Purchase Cashback): ")
+add_callout("Imagine you are considering wireless headphones originally priced at Rs. 2,000. No promotional offer, discount, or cashback applies; you pay the full regular price of Rs. 2,000.", "• Scenario C (Baseline Control): ")
+
+add_h2("Part 3: Experimental Outcome Telemetry Scales")
+add_p("For each of the three experimental scenarios (A, B, and C), participants respond to three identical 5-point Likert outcome telemetry measures:")
+add_callout("1 – Very unlikely  |  2 – Unlikely  |  3 – Neither likely nor unlikely  |  4 – Likely  |  5 – Very likely", "Q13. How likely are you to purchase this product?: ")
+add_callout("1 – Not attractive at all  |  2 – Slightly attractive  |  3 – Moderately attractive  |  4 – Very attractive  |  5 – Extremely attractive", "Q14. How attractive do you find this offer / purchase option?: ")
+add_callout("1 – Not confident at all  |  2 – Slightly confident  |  3 – Moderately confident  |  4 – Very confident  |  5 – Extremely confident", "Q15. How confident are you that this option provides good value for money?: ")
+
 # Save Report
 docx_path = 'Marketing_Campaign_Effectiveness_Report.docx'
 doc.save(docx_path)
