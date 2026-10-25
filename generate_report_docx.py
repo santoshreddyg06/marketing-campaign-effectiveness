@@ -209,7 +209,7 @@ r_lbl = p_link.add_run("Online Questionnaire & Survey Web Application: ")
 r_lbl.font.size = Pt(9.5)
 r_lbl.font.bold = True
 r_lbl.font.color.rgb = COLOR_PRIMARY
-add_hyperlink(p_link, "https://marketing-campaign-effectiveness-santosh.streamlit.app/", "https://marketing-campaign-effectiveness-santosh.streamlit.app/", color_hex="1B4F72", font_size=Pt(9.5))
+add_hyperlink(p_link, "https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/", "https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/", color_hex="1B4F72", font_size=Pt(9.5))
 
 # Team Table
 tbl_team = doc.add_table(rows=4, cols=2)
@@ -281,7 +281,7 @@ r_q = p_qlink.add_run("Online Survey Instrument: ")
 r_q.font.size = Pt(9.5)
 r_q.font.bold = True
 r_q.font.color.rgb = COLOR_PRIMARY
-add_hyperlink(p_qlink, "https://marketing-campaign-effectiveness-santosh.streamlit.app/", "https://marketing-campaign-effectiveness-santosh.streamlit.app/", color_hex="1B4F72", font_size=Pt(9.5))
+add_hyperlink(p_qlink, "https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/", "https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/", color_hex="1B4F72", font_size=Pt(9.5))
 r_repo = p_qlink.add_run("  |  Source Code: ")
 r_repo.font.size = Pt(9.5)
 r_repo.font.bold = True

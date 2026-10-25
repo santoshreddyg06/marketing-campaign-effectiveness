@@ -99,7 +99,7 @@ local_env = {}
 
 add_heading("""# Marketing Campaign Effectiveness Analysis
 
-**Online Survey Telemetry Application:** [https://marketing-campaign-effectiveness-santosh.streamlit.app/](https://marketing-campaign-effectiveness-santosh.streamlit.app/)
+**Online Survey Telemetry Application:** [https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/](https://marketing-campaign-effectiveness-hk5tpqzrnecejgm7kimg9q.streamlit.app/)
 **GitHub Source Repository:** [https://github.com/santoshreddyg06/marketing-campaign-effectiveness](https://github.com/santoshreddyg06/marketing-campaign-effectiveness)""")
 
 # ------------------------------------------------------------------------------
