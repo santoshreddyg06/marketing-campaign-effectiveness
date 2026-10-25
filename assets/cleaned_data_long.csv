@@ -1,0 +1,223 @@
+respondent_id,scenario_order,scenario_condition,purchase_intention,offer_attractiveness,value_for_money_confidence,timestamp_utc,age_group,discovery_platform,ad_frequency,ad_trust,discount_importance,choose_promoted_product_likelihood,ad_receptivity_score,status
+e87556d4-8853-467e-88a9-396bffcc16f9,1,Cashback,3,2,2,2026-10-16T07:36:39+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,2,3,4,3.0,Completed
+e87556d4-8853-467e-88a9-396bffcc16f9,2,No Promotion,2,2,2,2026-10-16T07:37:33+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,2,3,4,3.0,Completed
+e87556d4-8853-467e-88a9-396bffcc16f9,3,Discount,4,3,4,2026-10-16T07:39:11+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,2,3,4,3.0,Completed
+6813fe44-990e-46ed-bfb7-d217f984493f,1,Cashback,4,4,4,2026-10-16T07:40:20+00:00,18–22,Instagram,Often,3,5,4,4.0,Completed
+6813fe44-990e-46ed-bfb7-d217f984493f,2,No Promotion,3,3,3,2026-10-16T07:40:26+00:00,18–22,Instagram,Often,3,5,4,4.0,Completed
+6813fe44-990e-46ed-bfb7-d217f984493f,3,Discount,5,5,5,2026-10-16T07:40:31+00:00,18–22,Instagram,Often,3,5,4,4.0,Completed
+cf305560-89a2-4d19-bd4c-67f25d911da7,1,No Promotion,1,1,2,2026-10-16T10:31:49+00:00,18–22,Instagram,Often,2,4,3,3.0,Completed
+cf305560-89a2-4d19-bd4c-67f25d911da7,2,Discount,4,3,2,2026-10-16T10:32:16+00:00,18–22,Instagram,Often,2,4,3,3.0,Completed
+cf305560-89a2-4d19-bd4c-67f25d911da7,3,Cashback,3,2,2,2026-10-16T10:33:44+00:00,18–22,Instagram,Often,2,4,3,3.0,Completed
+8fd8f966-95b4-4299-9c93-440b7e23caea,1,Discount,4,3,3,2026-10-16T10:49:55+00:00,18–22,Instagram,Often,3,5,4,4.0,Completed
+8fd8f966-95b4-4299-9c93-440b7e23caea,2,Cashback,3,2,2,2026-10-16T10:50:18+00:00,18–22,Instagram,Often,3,5,4,4.0,Completed
+8fd8f966-95b4-4299-9c93-440b7e23caea,3,No Promotion,1,1,2,2026-10-16T10:50:24+00:00,18–22,Instagram,Often,3,5,4,4.0,Completed
+c515e9cd-3266-46ef-9a3c-2c2629b70b0a,1,Cashback,2,2,2,2026-10-17T05:56:46+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,3,3,3.0,Completed
+c515e9cd-3266-46ef-9a3c-2c2629b70b0a,2,Discount,3,3,3,2026-10-17T05:57:21+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,3,3,3.0,Completed
+c515e9cd-3266-46ef-9a3c-2c2629b70b0a,3,No Promotion,1,1,1,2026-10-17T05:57:38+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,3,3,3.0,Completed
+bb168994-a261-4285-9c68-b70de2b51906,1,Cashback,3,3,3,2026-10-17T06:06:15+00:00,Above 45,Facebook,Often,2,3,3,2.6666666666666665,Completed
+bb168994-a261-4285-9c68-b70de2b51906,2,Discount,3,3,3,2026-10-17T06:06:20+00:00,Above 45,Facebook,Often,2,3,3,2.6666666666666665,Completed
+bb168994-a261-4285-9c68-b70de2b51906,3,No Promotion,3,3,4,2026-10-17T06:06:23+00:00,Above 45,Facebook,Often,2,3,3,2.6666666666666665,Completed
+f43a9fb2-4892-417b-a29a-17be17ca9d1f,1,Discount,2,2,3,2026-10-17T06:09:36+00:00,18–22,Instagram,Very often,2,4,5,3.6666666666666665,Completed
+f43a9fb2-4892-417b-a29a-17be17ca9d1f,2,Cashback,1,1,1,2026-10-17T06:09:46+00:00,18–22,Instagram,Very often,2,4,5,3.6666666666666665,Completed
+f43a9fb2-4892-417b-a29a-17be17ca9d1f,3,No Promotion,1,1,1,2026-10-17T06:09:55+00:00,18–22,Instagram,Very often,2,4,5,3.6666666666666665,Completed
+ecf15066-1933-4b3a-8eb9-3221d01638f6,1,Discount,1,2,2,2026-10-17T06:14:01+00:00,18–22,Instagram,Sometimes,3,3,3,3.0,Completed
+ecf15066-1933-4b3a-8eb9-3221d01638f6,2,No Promotion,3,2,2,2026-10-17T06:14:03+00:00,18–22,Instagram,Sometimes,3,3,3,3.0,Completed
+ecf15066-1933-4b3a-8eb9-3221d01638f6,3,Cashback,2,2,2,2026-10-17T06:14:12+00:00,18–22,Instagram,Sometimes,3,3,3,3.0,Completed
+369cfc3a-930d-4786-b061-a9499455a895,1,Discount,4,4,4,2026-10-17T06:13:49+00:00,18–22,Google/Search,Often,2,4,4,3.3333333333333335,Completed
+369cfc3a-930d-4786-b061-a9499455a895,2,Cashback,4,4,4,2026-10-17T06:14:48+00:00,18–22,Google/Search,Often,2,4,4,3.3333333333333335,Completed
+369cfc3a-930d-4786-b061-a9499455a895,3,No Promotion,3,2,2,2026-10-17T06:15:12+00:00,18–22,Google/Search,Often,2,4,4,3.3333333333333335,Completed
+97dff2b2-8899-49a8-a287-79551ec1cf6a,1,Discount,2,3,3,2026-10-17T06:15:47+00:00,18–22,Other,Often,3,4,4,3.6666666666666665,Completed
+97dff2b2-8899-49a8-a287-79551ec1cf6a,2,Cashback,2,2,3,2026-10-17T06:16:02+00:00,18–22,Other,Often,3,4,4,3.6666666666666665,Completed
+97dff2b2-8899-49a8-a287-79551ec1cf6a,3,No Promotion,2,2,1,2026-10-17T06:16:22+00:00,18–22,Other,Often,3,4,4,3.6666666666666665,Completed
+8527afca-ee6c-4f39-8a78-c280af8f3c8d,1,Cashback,1,1,1,2026-10-17T06:28:12+00:00,18–22,YouTube,Sometimes,3,3,3,3.0,Completed
+8527afca-ee6c-4f39-8a78-c280af8f3c8d,2,Discount,2,3,1,2026-10-17T06:28:39+00:00,18–22,YouTube,Sometimes,3,3,3,3.0,Completed
+8527afca-ee6c-4f39-8a78-c280af8f3c8d,3,No Promotion,3,3,2,2026-10-17T06:28:54+00:00,18–22,YouTube,Sometimes,3,3,3,3.0,Completed
+c02bf9e6-ab59-4ca9-a1df-e25af9486f18,1,No Promotion,3,1,2,2026-10-17T06:29:44+00:00,18–22,YouTube,Very often,1,2,1,1.3333333333333333,Completed
+c02bf9e6-ab59-4ca9-a1df-e25af9486f18,2,Discount,3,3,3,2026-10-17T06:29:56+00:00,18–22,YouTube,Very often,1,2,1,1.3333333333333333,Completed
+c02bf9e6-ab59-4ca9-a1df-e25af9486f18,3,Cashback,1,3,2,2026-10-17T06:30:07+00:00,18–22,YouTube,Very often,1,2,1,1.3333333333333333,Completed
+9204f951-17ad-4906-8464-8d184c63d414,1,Cashback,4,3,2,2026-10-17T07:52:40+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Often,4,3,1,2.6666666666666665,Completed
+9204f951-17ad-4906-8464-8d184c63d414,2,Discount,3,3,2,2026-10-17T07:53:15+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Often,4,3,1,2.6666666666666665,Completed
+9204f951-17ad-4906-8464-8d184c63d414,3,No Promotion,3,3,3,2026-10-17T07:53:46+00:00,18–22,"E-commerce apps (Amazon, Flipkart, etc.)",Often,4,3,1,2.6666666666666665,Completed
+584ebf7b-ad73-47e9-87c4-54b9d2dc3a31,1,Cashback,5,5,5,2026-10-17T19:08:37+00:00,23–30,Google/Search,Sometimes,2,3,5,3.3333333333333335,Completed
+584ebf7b-ad73-47e9-87c4-54b9d2dc3a31,2,Discount,5,5,4,2026-10-17T19:08:54+00:00,23–30,Google/Search,Sometimes,2,3,5,3.3333333333333335,Completed
+584ebf7b-ad73-47e9-87c4-54b9d2dc3a31,3,No Promotion,4,2,2,2026-10-17T19:09:21+00:00,23–30,Google/Search,Sometimes,2,3,5,3.3333333333333335,Completed
+0493eb42-6292-4d55-8079-cc43729613b3,1,Cashback,4,4,4,2026-10-17T19:14:06+00:00,31–45,Instagram,Very often,3,3,4,3.3333333333333335,Completed
+0493eb42-6292-4d55-8079-cc43729613b3,2,No Promotion,2,2,2,2026-10-17T19:14:57+00:00,31–45,Instagram,Very often,3,3,4,3.3333333333333335,Completed
+0493eb42-6292-4d55-8079-cc43729613b3,3,Discount,5,5,5,2026-10-17T19:15:28+00:00,31–45,Instagram,Very often,3,3,4,3.3333333333333335,Completed
+99b44256-68aa-41ac-b9c5-369356bff5da,1,Cashback,2,2,2,2026-10-18T05:10:05+00:00,31–45,Google/Search,Rarely,4,4,5,4.333333333333333,Completed
+99b44256-68aa-41ac-b9c5-369356bff5da,2,Discount,4,4,4,2026-10-18T05:11:18+00:00,31–45,Google/Search,Rarely,4,4,5,4.333333333333333,Completed
+99b44256-68aa-41ac-b9c5-369356bff5da,3,No Promotion,1,1,1,2026-10-18T05:12:24+00:00,31–45,Google/Search,Rarely,4,4,5,4.333333333333333,Completed
+5e1b260a-2ae2-49d2-83ca-8f452c0bc3f0,1,Discount,5,5,4,2026-10-18T05:37:03+00:00,Under 18,Instagram,Rarely,2,5,5,4.0,Completed
+5e1b260a-2ae2-49d2-83ca-8f452c0bc3f0,2,No Promotion,1,1,1,2026-10-18T05:37:15+00:00,Under 18,Instagram,Rarely,2,5,5,4.0,Completed
+5e1b260a-2ae2-49d2-83ca-8f452c0bc3f0,3,Cashback,2,2,2,2026-10-18T05:37:24+00:00,Under 18,Instagram,Rarely,2,5,5,4.0,Completed
+aef9d24e-9d0c-4302-855c-e70c6cee660c,1,No Promotion,2,5,1,2026-10-18T10:16:35+00:00,18–22,Instagram,Sometimes,3,4,4,3.6666666666666665,Completed
+aef9d24e-9d0c-4302-855c-e70c6cee660c,2,Discount,4,3,3,2026-10-18T10:16:53+00:00,18–22,Instagram,Sometimes,3,4,4,3.6666666666666665,Completed
+aef9d24e-9d0c-4302-855c-e70c6cee660c,3,Cashback,4,3,3,2026-10-18T10:17:07+00:00,18–22,Instagram,Sometimes,3,4,4,3.6666666666666665,Completed
+544c0530-6a56-4e22-8210-e4492be71d51,1,Discount,3,2,3,2026-10-21T09:20:22+00:00,Under 18,Instagram,Often,3,2,4,3.0,Completed
+544c0530-6a56-4e22-8210-e4492be71d51,2,Cashback,4,5,5,2026-10-18T11:24:54+00:00,Under 18,Instagram,Often,3,2,4,3.0,Completed
+544c0530-6a56-4e22-8210-e4492be71d51,3,No Promotion,3,1,1,2026-10-16T23:30:54+00:00,Under 18,Instagram,Often,3,2,4,3.0,Completed
+aefba00f-ffa3-4d64-91c8-4f2cbf3efe97,1,Discount,3,4,4,2026-10-19T14:09:10+00:00,Under 18,Instagram,Sometimes,2,2,4,2.6666666666666665,Completed
+aefba00f-ffa3-4d64-91c8-4f2cbf3efe97,2,Cashback,5,5,3,2026-10-20T14:41:55+00:00,Under 18,Instagram,Sometimes,2,2,4,2.6666666666666665,Completed
+aefba00f-ffa3-4d64-91c8-4f2cbf3efe97,3,No Promotion,1,5,1,2026-10-17T15:10:07+00:00,Under 18,Instagram,Sometimes,2,2,4,2.6666666666666665,Completed
+dcc41750-23a1-46cf-8c51-59edac35dc58,1,No Promotion,3,5,1,2026-10-19T13:11:27+00:00,Under 18,Instagram,Sometimes,3,3,4,3.3333333333333335,Completed
+dcc41750-23a1-46cf-8c51-59edac35dc58,2,Cashback,4,3,4,2026-10-18T16:28:36+00:00,Under 18,Instagram,Sometimes,3,3,4,3.3333333333333335,Completed
+dcc41750-23a1-46cf-8c51-59edac35dc58,3,Discount,4,4,4,2026-10-18T06:52:17+00:00,Under 18,Instagram,Sometimes,3,3,4,3.3333333333333335,Completed
+14905293-b3c0-4640-83ab-38f927b384c7,1,Discount,4,3,2,2026-10-16T16:06:19+00:00,Under 18,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,3,1,1,1.6666666666666667,Completed
+14905293-b3c0-4640-83ab-38f927b384c7,2,No Promotion,1,4,1,2026-10-21T10:46:13+00:00,Under 18,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,3,1,1,1.6666666666666667,Completed
+14905293-b3c0-4640-83ab-38f927b384c7,3,Cashback,5,2,2,2026-10-19T12:01:11+00:00,Under 18,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,3,1,1,1.6666666666666667,Completed
+7dd8c3d7-55eb-4a9a-8d4e-dd8fbab2e051,1,Discount,4,4,5,2026-10-20T03:12:38+00:00,18–22,Instagram,Often,3,4,3,3.3333333333333335,Completed
+7dd8c3d7-55eb-4a9a-8d4e-dd8fbab2e051,2,Cashback,5,4,5,2026-10-19T18:54:43+00:00,18–22,Instagram,Often,3,4,3,3.3333333333333335,Completed
+7dd8c3d7-55eb-4a9a-8d4e-dd8fbab2e051,3,No Promotion,4,2,4,2026-10-18T17:12:38+00:00,18–22,Instagram,Often,3,4,3,3.3333333333333335,Completed
+c93fe90f-14aa-4dbe-82eb-fe6d1fb8e714,1,Cashback,3,5,3,2026-10-19T09:35:23+00:00,18–22,Instagram,Very often,2,4,5,3.6666666666666665,Completed
+c93fe90f-14aa-4dbe-82eb-fe6d1fb8e714,2,No Promotion,1,3,2,2026-10-20T01:23:37+00:00,18–22,Instagram,Very often,2,4,5,3.6666666666666665,Completed
+c93fe90f-14aa-4dbe-82eb-fe6d1fb8e714,3,Discount,2,5,4,2026-10-17T07:08:41+00:00,18–22,Instagram,Very often,2,4,5,3.6666666666666665,Completed
+3256610e-c690-4bdc-b178-109055c06a70,1,No Promotion,3,3,1,2026-10-20T17:08:58+00:00,18–22,Instagram,Very often,5,2,5,4.0,Completed
+3256610e-c690-4bdc-b178-109055c06a70,2,Discount,4,5,4,2026-10-19T19:04:37+00:00,18–22,Instagram,Very often,5,2,5,4.0,Completed
+3256610e-c690-4bdc-b178-109055c06a70,3,Cashback,5,2,2,2026-10-16T14:17:01+00:00,18–22,Instagram,Very often,5,2,5,4.0,Completed
+1d6a2c6d-ef86-47ae-b35d-5ae7026c04b1,1,Cashback,4,3,2,2026-10-17T11:44:50+00:00,18–22,Instagram,Very often,3,4,3,3.3333333333333335,Completed
+1d6a2c6d-ef86-47ae-b35d-5ae7026c04b1,2,Discount,4,3,3,2026-10-17T01:03:37+00:00,18–22,Instagram,Very often,3,4,3,3.3333333333333335,Completed
+1d6a2c6d-ef86-47ae-b35d-5ae7026c04b1,3,No Promotion,5,1,3,2026-10-20T19:29:53+00:00,18–22,Instagram,Very often,3,4,3,3.3333333333333335,Completed
+08c6d687-877c-4d39-94ec-dd66e50d4d0e,1,No Promotion,3,1,4,2026-10-21T03:32:32+00:00,18–22,Other,Rarely,4,2,4,3.3333333333333335,Completed
+08c6d687-877c-4d39-94ec-dd66e50d4d0e,2,Discount,5,2,5,2026-10-18T01:36:00+00:00,18–22,Other,Rarely,4,2,4,3.3333333333333335,Completed
+08c6d687-877c-4d39-94ec-dd66e50d4d0e,3,Cashback,2,2,4,2026-10-17T20:30:56+00:00,18–22,Other,Rarely,4,2,4,3.3333333333333335,Completed
+e4d1c987-d597-481e-acf0-d6a91569f899,1,Discount,3,2,5,2026-10-16T06:30:58+00:00,18–22,Instagram,Sometimes,3,1,5,3.0,Completed
+e4d1c987-d597-481e-acf0-d6a91569f899,2,Cashback,4,4,3,2026-10-17T05:31:55+00:00,18–22,Instagram,Sometimes,3,1,5,3.0,Completed
+e4d1c987-d597-481e-acf0-d6a91569f899,3,No Promotion,1,5,3,2026-10-16T07:24:29+00:00,18–22,Instagram,Sometimes,3,1,5,3.0,Completed
+8552ad88-e15b-4260-8699-eca64416451d,1,Discount,5,5,4,2026-10-18T09:30:29+00:00,18–22,Google/Search,Very often,4,5,3,4.0,Completed
+8552ad88-e15b-4260-8699-eca64416451d,2,Cashback,4,5,2,2026-10-20T00:23:25+00:00,18–22,Google/Search,Very often,4,5,3,4.0,Completed
+8552ad88-e15b-4260-8699-eca64416451d,3,No Promotion,5,4,4,2026-10-17T05:39:57+00:00,18–22,Google/Search,Very often,4,5,3,4.0,Completed
+9c1290c4-2694-4cb7-8cde-257830e6e64c,1,Cashback,2,5,3,2026-10-17T14:23:39+00:00,23–30,Instagram,Very often,4,4,3,3.6666666666666665,Completed
+9c1290c4-2694-4cb7-8cde-257830e6e64c,2,No Promotion,4,2,1,2026-10-21T05:29:57+00:00,23–30,Instagram,Very often,4,4,3,3.6666666666666665,Completed
+9c1290c4-2694-4cb7-8cde-257830e6e64c,3,Discount,3,3,2,2026-10-17T10:07:35+00:00,23–30,Instagram,Very often,4,4,3,3.6666666666666665,Completed
+77e3d2cf-4842-41f3-9951-14e60f50f7c8,1,Discount,4,4,3,2026-10-19T20:52:55+00:00,23–30,YouTube,Often,3,2,3,2.6666666666666665,Completed
+77e3d2cf-4842-41f3-9951-14e60f50f7c8,2,Cashback,5,2,5,2026-10-19T22:17:08+00:00,23–30,YouTube,Often,3,2,3,2.6666666666666665,Completed
+77e3d2cf-4842-41f3-9951-14e60f50f7c8,3,No Promotion,2,3,1,2026-10-17T09:40:56+00:00,23–30,YouTube,Often,3,2,3,2.6666666666666665,Completed
+bf93c304-5780-4b42-a41b-90b1c88a5f85,1,Cashback,3,3,3,2026-10-20T07:07:23+00:00,23–30,Google/Search,Often,3,5,3,3.6666666666666665,Completed
+bf93c304-5780-4b42-a41b-90b1c88a5f85,2,Discount,2,4,3,2026-10-17T00:32:15+00:00,23–30,Google/Search,Often,3,5,3,3.6666666666666665,Completed
+bf93c304-5780-4b42-a41b-90b1c88a5f85,3,No Promotion,4,3,2,2026-10-20T18:57:17+00:00,23–30,Google/Search,Often,3,5,3,3.6666666666666665,Completed
+84799f98-8811-49f2-ae1b-845f708dae0b,1,No Promotion,3,2,3,2026-10-17T06:42:47+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,2,3,5,3.3333333333333335,Completed
+84799f98-8811-49f2-ae1b-845f708dae0b,2,Cashback,3,5,4,2026-10-20T00:11:11+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,2,3,5,3.3333333333333335,Completed
+84799f98-8811-49f2-ae1b-845f708dae0b,3,Discount,3,5,2,2026-10-20T07:58:58+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,2,3,5,3.3333333333333335,Completed
+3a99bf3b-de45-4452-9bd6-1fd0404bab8a,1,Discount,5,5,5,2026-10-20T19:22:01+00:00,23–30,YouTube,Sometimes,3,3,4,3.3333333333333335,Completed
+3a99bf3b-de45-4452-9bd6-1fd0404bab8a,2,Cashback,2,5,3,2026-10-17T13:52:15+00:00,23–30,YouTube,Sometimes,3,3,4,3.3333333333333335,Completed
+3a99bf3b-de45-4452-9bd6-1fd0404bab8a,3,No Promotion,3,4,1,2026-10-16T13:18:48+00:00,23–30,YouTube,Sometimes,3,3,4,3.3333333333333335,Completed
+b3dffb0f-80dd-4622-9c50-53d3e6f8db46,1,Discount,5,4,5,2026-10-20T18:18:09+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,4,3,4,3.6666666666666665,Completed
+b3dffb0f-80dd-4622-9c50-53d3e6f8db46,2,No Promotion,3,3,3,2026-10-21T08:18:50+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,4,3,4,3.6666666666666665,Completed
+b3dffb0f-80dd-4622-9c50-53d3e6f8db46,3,Cashback,3,3,4,2026-10-20T01:16:36+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,4,3,4,3.6666666666666665,Completed
+c27dabb1-ea92-474e-b225-379a6796ef70,1,Cashback,5,4,4,2026-10-18T14:43:18+00:00,23–30,YouTube,Sometimes,4,3,3,3.3333333333333335,Completed
+c27dabb1-ea92-474e-b225-379a6796ef70,2,No Promotion,4,3,2,2026-10-21T10:46:14+00:00,23–30,YouTube,Sometimes,4,3,3,3.3333333333333335,Completed
+c27dabb1-ea92-474e-b225-379a6796ef70,3,Discount,3,3,5,2026-10-18T09:13:42+00:00,23–30,YouTube,Sometimes,4,3,3,3.3333333333333335,Completed
+da27b61b-beef-4ca9-a325-d3e1051fdb75,1,Cashback,5,4,5,2026-10-17T00:35:13+00:00,23–30,Google/Search,Often,3,3,4,3.3333333333333335,Completed
+da27b61b-beef-4ca9-a325-d3e1051fdb75,2,No Promotion,3,1,3,2026-10-19T20:12:02+00:00,23–30,Google/Search,Often,3,3,4,3.3333333333333335,Completed
+da27b61b-beef-4ca9-a325-d3e1051fdb75,3,Discount,5,2,3,2026-10-17T01:45:45+00:00,23–30,Google/Search,Often,3,3,4,3.3333333333333335,Completed
+fd39725f-255d-4e23-8cf8-541685e9ff31,1,Cashback,4,4,4,2026-10-17T14:39:16+00:00,23–30,Instagram,Sometimes,4,1,5,3.3333333333333335,Completed
+fd39725f-255d-4e23-8cf8-541685e9ff31,2,Discount,1,3,5,2026-10-20T19:50:35+00:00,23–30,Instagram,Sometimes,4,1,5,3.3333333333333335,Completed
+fd39725f-255d-4e23-8cf8-541685e9ff31,3,No Promotion,1,1,3,2026-10-20T00:29:18+00:00,23–30,Instagram,Sometimes,4,1,5,3.3333333333333335,Completed
+4c50cf74-51ef-4b62-a355-ea1de2b21eb9,1,Cashback,4,5,3,2026-10-19T17:51:23+00:00,23–30,Other,Sometimes,5,2,4,3.6666666666666665,Completed
+4c50cf74-51ef-4b62-a355-ea1de2b21eb9,2,Discount,2,4,5,2026-10-20T14:07:53+00:00,23–30,Other,Sometimes,5,2,4,3.6666666666666665,Completed
+4c50cf74-51ef-4b62-a355-ea1de2b21eb9,3,No Promotion,1,3,4,2026-10-17T17:22:03+00:00,23–30,Other,Sometimes,5,2,4,3.6666666666666665,Completed
+b0ca7161-23d6-4b6d-a1fb-29df4b59a9ce,1,Cashback,4,5,4,2026-10-18T10:44:50+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,1,4,2.6666666666666665,Completed
+b0ca7161-23d6-4b6d-a1fb-29df4b59a9ce,2,No Promotion,1,3,3,2026-10-18T21:25:20+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,1,4,2.6666666666666665,Completed
+b0ca7161-23d6-4b6d-a1fb-29df4b59a9ce,3,Discount,5,4,4,2026-10-19T23:41:55+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,1,4,2.6666666666666665,Completed
+e4d5d02d-e7fe-4496-a3b4-ba5b0428c48b,1,Cashback,3,3,3,2026-10-21T09:55:44+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,4,3,3.0,Completed
+e4d5d02d-e7fe-4496-a3b4-ba5b0428c48b,2,No Promotion,2,4,3,2026-10-17T19:37:31+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,4,3,3.0,Completed
+e4d5d02d-e7fe-4496-a3b4-ba5b0428c48b,3,Discount,4,4,2,2026-10-17T22:14:04+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,4,3,3.0,Completed
+fefb4180-9c9c-4395-88ef-7aaf641db996,1,No Promotion,2,3,2,2026-10-18T11:44:32+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,3,2,3,2.6666666666666665,Completed
+fefb4180-9c9c-4395-88ef-7aaf641db996,2,Discount,4,3,4,2026-10-20T18:38:04+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,3,2,3,2.6666666666666665,Completed
+fefb4180-9c9c-4395-88ef-7aaf641db996,3,Cashback,3,2,2,2026-10-18T02:39:18+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Sometimes,3,2,3,2.6666666666666665,Completed
+403d1af2-6fb2-4d88-8b14-7f912b9de368,1,Cashback,3,3,4,2026-10-17T15:07:46+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Very often,2,4,5,3.6666666666666665,Completed
+403d1af2-6fb2-4d88-8b14-7f912b9de368,2,Discount,3,5,4,2026-10-17T00:26:05+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Very often,2,4,5,3.6666666666666665,Completed
+403d1af2-6fb2-4d88-8b14-7f912b9de368,3,No Promotion,5,3,3,2026-10-20T11:34:07+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Very often,2,4,5,3.6666666666666665,Completed
+743c05ff-96b6-4047-b779-57128b6e253c,1,Discount,2,4,3,2026-10-17T04:05:48+00:00,23–30,Facebook,Often,5,3,4,4.0,Completed
+743c05ff-96b6-4047-b779-57128b6e253c,2,Cashback,2,4,4,2026-10-17T18:08:43+00:00,23–30,Facebook,Often,5,3,4,4.0,Completed
+743c05ff-96b6-4047-b779-57128b6e253c,3,No Promotion,3,3,2,2026-10-21T01:09:35+00:00,23–30,Facebook,Often,5,3,4,4.0,Completed
+749de868-e34c-4654-a6dc-870b89cc2d16,1,No Promotion,1,2,3,2026-10-16T16:55:55+00:00,23–30,YouTube,Often,2,3,3,2.6666666666666665,Completed
+749de868-e34c-4654-a6dc-870b89cc2d16,2,Discount,3,3,4,2026-10-19T02:26:09+00:00,23–30,YouTube,Often,2,3,3,2.6666666666666665,Completed
+749de868-e34c-4654-a6dc-870b89cc2d16,3,Cashback,5,1,2,2026-10-20T12:22:47+00:00,23–30,YouTube,Often,2,3,3,2.6666666666666665,Completed
+873fa18d-72b7-4443-86c9-4baef7c83996,1,Cashback,4,4,3,2026-10-19T20:39:34+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,4,2,3.0,Completed
+873fa18d-72b7-4443-86c9-4baef7c83996,2,Discount,4,3,4,2026-10-17T00:06:37+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,4,2,3.0,Completed
+873fa18d-72b7-4443-86c9-4baef7c83996,3,No Promotion,2,2,1,2026-10-17T21:38:55+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,3,4,2,3.0,Completed
+c959c23f-e9fc-4cd5-a40a-50db35d0e604,1,Discount,4,4,3,2026-10-19T02:31:17+00:00,23–30,Facebook,Often,2,4,4,3.3333333333333335,Completed
+c959c23f-e9fc-4cd5-a40a-50db35d0e604,2,No Promotion,2,4,5,2026-10-19T19:14:41+00:00,23–30,Facebook,Often,2,4,4,3.3333333333333335,Completed
+c959c23f-e9fc-4cd5-a40a-50db35d0e604,3,Cashback,3,3,4,2026-10-19T02:27:00+00:00,23–30,Facebook,Often,2,4,4,3.3333333333333335,Completed
+e2e8ca74-d98c-46e0-8b7a-40d04e23856d,1,No Promotion,5,3,3,2026-10-21T06:08:19+00:00,23–30,Instagram,Sometimes,4,3,5,4.0,Completed
+e2e8ca74-d98c-46e0-8b7a-40d04e23856d,2,Discount,1,4,4,2026-10-18T18:11:00+00:00,23–30,Instagram,Sometimes,4,3,5,4.0,Completed
+e2e8ca74-d98c-46e0-8b7a-40d04e23856d,3,Cashback,4,4,2,2026-10-19T06:35:53+00:00,23–30,Instagram,Sometimes,4,3,5,4.0,Completed
+3c057273-9038-4411-b3bc-b90d6635dede,1,Discount,5,4,2,2026-10-19T01:12:11+00:00,31–45,Instagram,Rarely,4,1,3,2.6666666666666665,Completed
+3c057273-9038-4411-b3bc-b90d6635dede,2,Cashback,3,4,3,2026-10-20T14:21:46+00:00,31–45,Instagram,Rarely,4,1,3,2.6666666666666665,Completed
+3c057273-9038-4411-b3bc-b90d6635dede,3,No Promotion,5,2,3,2026-10-19T04:16:08+00:00,31–45,Instagram,Rarely,4,1,3,2.6666666666666665,Completed
+59d2aa2f-3b2e-48f2-83a7-66216147a092,1,No Promotion,5,2,1,2026-10-19T18:27:26+00:00,31–45,YouTube,Sometimes,4,3,4,3.6666666666666665,Completed
+59d2aa2f-3b2e-48f2-83a7-66216147a092,2,Discount,4,3,5,2026-10-19T12:26:11+00:00,31–45,YouTube,Sometimes,4,3,4,3.6666666666666665,Completed
+59d2aa2f-3b2e-48f2-83a7-66216147a092,3,Cashback,3,3,2,2026-10-18T12:56:06+00:00,31–45,YouTube,Sometimes,4,3,4,3.6666666666666665,Completed
+30b96da3-f5d7-4546-8584-6b03328405ca,1,Discount,5,2,5,2026-10-19T06:08:14+00:00,31–45,YouTube,Sometimes,3,5,4,4.0,Completed
+30b96da3-f5d7-4546-8584-6b03328405ca,2,No Promotion,4,4,2,2026-10-18T06:21:00+00:00,31–45,YouTube,Sometimes,3,5,4,4.0,Completed
+30b96da3-f5d7-4546-8584-6b03328405ca,3,Cashback,5,1,2,2026-10-19T10:35:49+00:00,31–45,YouTube,Sometimes,3,5,4,4.0,Completed
+6fe55d6d-e7a4-4652-9c75-cc308831023f,1,Cashback,4,4,5,2026-10-20T01:17:03+00:00,31–45,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,4,5,3,4.0,Completed
+6fe55d6d-e7a4-4652-9c75-cc308831023f,2,Discount,4,3,4,2026-10-16T11:13:41+00:00,31–45,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,4,5,3,4.0,Completed
+6fe55d6d-e7a4-4652-9c75-cc308831023f,3,No Promotion,5,3,2,2026-10-17T23:51:09+00:00,31–45,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,4,5,3,4.0,Completed
+bdeebebf-89f7-4147-bb61-911aedf9e96e,1,No Promotion,1,1,3,2026-10-21T01:25:08+00:00,31–45,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,3,3,2.6666666666666665,Completed
+bdeebebf-89f7-4147-bb61-911aedf9e96e,2,Cashback,4,3,5,2026-10-18T13:42:43+00:00,31–45,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,3,3,2.6666666666666665,Completed
+bdeebebf-89f7-4147-bb61-911aedf9e96e,3,Discount,3,4,4,2026-10-17T02:50:34+00:00,31–45,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,3,3,2.6666666666666665,Completed
+d9073e6f-47f8-40d8-93b9-cd2c09ac0bca,1,Discount,5,2,3,2026-10-18T14:01:30+00:00,31–45,Instagram,Often,3,3,5,3.6666666666666665,Completed
+d9073e6f-47f8-40d8-93b9-cd2c09ac0bca,2,No Promotion,3,5,2,2026-10-18T10:16:37+00:00,31–45,Instagram,Often,3,3,5,3.6666666666666665,Completed
+d9073e6f-47f8-40d8-93b9-cd2c09ac0bca,3,Cashback,4,3,4,2026-10-21T06:52:58+00:00,31–45,Instagram,Often,3,3,5,3.6666666666666665,Completed
+d796284d-cb85-4051-8272-ab35b141a39b,1,Cashback,4,4,4,2026-10-20T08:42:23+00:00,31–45,Facebook,Very often,5,5,3,4.333333333333333,Completed
+d796284d-cb85-4051-8272-ab35b141a39b,2,Discount,4,5,4,2026-10-17T01:55:11+00:00,31–45,Facebook,Very often,5,5,3,4.333333333333333,Completed
+d796284d-cb85-4051-8272-ab35b141a39b,3,No Promotion,4,1,2,2026-10-18T02:59:29+00:00,31–45,Facebook,Very often,5,5,3,4.333333333333333,Completed
+a897fddf-6f36-4b6d-94cc-6a4f9c0851da,1,Cashback,3,5,5,2026-10-21T03:27:12+00:00,31–45,Instagram,Rarely,5,5,5,5.0,Completed
+a897fddf-6f36-4b6d-94cc-6a4f9c0851da,2,No Promotion,5,1,5,2026-10-19T02:12:20+00:00,31–45,Instagram,Rarely,5,5,5,5.0,Completed
+a897fddf-6f36-4b6d-94cc-6a4f9c0851da,3,Discount,4,4,3,2026-10-21T11:16:01+00:00,31–45,Instagram,Rarely,5,5,5,5.0,Completed
+dc15ef4a-f134-461f-a298-901007984cae,1,Discount,3,1,5,2026-10-20T08:16:48+00:00,31–45,Facebook,Sometimes,4,4,5,4.333333333333333,Completed
+dc15ef4a-f134-461f-a298-901007984cae,2,Cashback,3,4,4,2026-10-19T15:45:39+00:00,31–45,Facebook,Sometimes,4,4,5,4.333333333333333,Completed
+dc15ef4a-f134-461f-a298-901007984cae,3,No Promotion,4,4,2,2026-10-20T02:32:14+00:00,31–45,Facebook,Sometimes,4,4,5,4.333333333333333,Completed
+25f65856-0cfd-431f-a79b-e75d88016b31,1,No Promotion,3,4,3,2026-10-20T18:06:02+00:00,31–45,Instagram,Never,3,5,4,4.0,Completed
+25f65856-0cfd-431f-a79b-e75d88016b31,2,Discount,4,4,5,2026-10-21T07:24:55+00:00,31–45,Instagram,Never,3,5,4,4.0,Completed
+25f65856-0cfd-431f-a79b-e75d88016b31,3,Cashback,4,3,3,2026-10-16T10:45:52+00:00,31–45,Instagram,Never,3,5,4,4.0,Completed
+369804e0-ffb8-4dca-898a-4d029924048a,1,No Promotion,3,3,1,2026-10-17T12:53:24+00:00,31–45,Facebook,Rarely,3,2,4,3.0,Completed
+369804e0-ffb8-4dca-898a-4d029924048a,2,Cashback,3,5,4,2026-10-21T00:35:06+00:00,31–45,Facebook,Rarely,3,2,4,3.0,Completed
+369804e0-ffb8-4dca-898a-4d029924048a,3,Discount,2,5,3,2026-10-17T11:53:06+00:00,31–45,Facebook,Rarely,3,2,4,3.0,Completed
+bb2ddf0d-9f47-4361-b14a-3067d2f87dc9,1,Discount,1,5,3,2026-10-17T01:11:42+00:00,31–45,Facebook,Rarely,2,4,2,2.6666666666666665,Completed
+bb2ddf0d-9f47-4361-b14a-3067d2f87dc9,2,Cashback,1,3,2,2026-10-18T05:09:09+00:00,31–45,Facebook,Rarely,2,4,2,2.6666666666666665,Completed
+bb2ddf0d-9f47-4361-b14a-3067d2f87dc9,3,No Promotion,2,3,2,2026-10-18T19:18:24+00:00,31–45,Facebook,Rarely,2,4,2,2.6666666666666665,Completed
+230ce8a2-9370-40a1-8b30-a2aa6c2236db,1,Cashback,3,4,3,2026-10-21T09:23:48+00:00,31–45,Google/Search,Sometimes,2,3,1,2.0,Completed
+230ce8a2-9370-40a1-8b30-a2aa6c2236db,2,No Promotion,1,1,3,2026-10-18T22:35:54+00:00,31–45,Google/Search,Sometimes,2,3,1,2.0,Completed
+230ce8a2-9370-40a1-8b30-a2aa6c2236db,3,Discount,2,4,4,2026-10-16T15:33:56+00:00,31–45,Google/Search,Sometimes,2,3,1,2.0,Completed
+8e39762b-b862-408d-8502-aba46ab023f0,1,Discount,4,3,3,2026-10-18T20:38:00+00:00,Above 45,Google/Search,Very often,1,4,4,3.0,Completed
+8e39762b-b862-408d-8502-aba46ab023f0,2,No Promotion,2,3,2,2026-10-19T00:02:44+00:00,Above 45,Google/Search,Very often,1,4,4,3.0,Completed
+8e39762b-b862-408d-8502-aba46ab023f0,3,Cashback,4,3,2,2026-10-18T03:30:52+00:00,Above 45,Google/Search,Very often,1,4,4,3.0,Completed
+f59b2607-a6e7-46ba-b490-4d518c4f33c8,1,Cashback,4,4,5,2026-10-21T13:13:41+00:00,Above 45,Instagram,Often,4,4,2,3.3333333333333335,Completed
+f59b2607-a6e7-46ba-b490-4d518c4f33c8,2,Discount,1,3,3,2026-10-20T15:00:43+00:00,Above 45,Instagram,Often,4,4,2,3.3333333333333335,Completed
+f59b2607-a6e7-46ba-b490-4d518c4f33c8,3,No Promotion,3,1,3,2026-10-16T21:05:16+00:00,Above 45,Instagram,Often,4,4,2,3.3333333333333335,Completed
+a11eb8b3-501d-4ee8-9054-39ff57433e6b,1,No Promotion,4,2,1,2026-10-20T05:48:13+00:00,Above 45,Facebook,Rarely,3,4,4,3.6666666666666665,Completed
+a11eb8b3-501d-4ee8-9054-39ff57433e6b,2,Discount,5,5,3,2026-10-20T12:20:16+00:00,Above 45,Facebook,Rarely,3,4,4,3.6666666666666665,Completed
+a11eb8b3-501d-4ee8-9054-39ff57433e6b,3,Cashback,5,4,3,2026-10-17T08:25:08+00:00,Above 45,Facebook,Rarely,3,4,4,3.6666666666666665,Completed
+5571a61f-fbab-4aea-a84a-3aabbf728603,1,Discount,2,4,4,2026-10-17T04:39:28+00:00,Above 45,Facebook,Very often,3,3,4,3.3333333333333335,Completed
+5571a61f-fbab-4aea-a84a-3aabbf728603,2,Cashback,3,3,4,2026-10-17T21:37:40+00:00,Above 45,Facebook,Very often,3,3,4,3.3333333333333335,Completed
+5571a61f-fbab-4aea-a84a-3aabbf728603,3,No Promotion,2,3,1,2026-10-18T18:19:11+00:00,Above 45,Facebook,Very often,3,3,4,3.3333333333333335,Completed
+f04f4893-fd8f-4a95-a551-29d2746862cf,1,Cashback,3,4,2,2026-10-17T01:24:18+00:00,18–22,Google/Search,Often,1,3,4,2.6666666666666665,Completed
+f04f4893-fd8f-4a95-a551-29d2746862cf,2,No Promotion,3,2,2,2026-10-20T09:39:34+00:00,18–22,Google/Search,Often,1,3,4,2.6666666666666665,Completed
+f04f4893-fd8f-4a95-a551-29d2746862cf,3,Discount,4,2,4,2026-10-17T11:02:58+00:00,18–22,Google/Search,Often,1,3,4,2.6666666666666665,Completed
+b8a565c9-994e-4cf6-b911-3421aef9b97c,1,Cashback,4,4,4,2026-10-21T00:48:24+00:00,Above 45,YouTube,Sometimes,3,3,3,3.0,Completed
+b8a565c9-994e-4cf6-b911-3421aef9b97c,2,No Promotion,2,2,3,2026-10-17T04:10:36+00:00,Above 45,YouTube,Sometimes,3,3,3,3.0,Completed
+b8a565c9-994e-4cf6-b911-3421aef9b97c,3,Discount,4,2,4,2026-10-16T18:04:57+00:00,Above 45,YouTube,Sometimes,3,3,3,3.0,Completed
+e06d0613-79bd-40e2-8ef0-89ea67ae0a89,1,No Promotion,2,3,2,2026-10-18T16:38:10+00:00,Above 45,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,3,4,2.6666666666666665,Completed
+e06d0613-79bd-40e2-8ef0-89ea67ae0a89,2,Cashback,1,4,3,2026-10-18T10:47:50+00:00,Above 45,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,3,4,2.6666666666666665,Completed
+e06d0613-79bd-40e2-8ef0-89ea67ae0a89,3,Discount,5,4,4,2026-10-17T10:50:50+00:00,Above 45,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,3,4,2.6666666666666665,Completed
+08a1034f-2303-490d-93f9-e826b8a3d7a6,1,No Promotion,2,1,1,2026-10-20T14:09:01+00:00,31–45,YouTube,Often,1,3,4,2.6666666666666665,Completed
+08a1034f-2303-490d-93f9-e826b8a3d7a6,2,Discount,2,5,4,2026-10-17T07:52:06+00:00,31–45,YouTube,Often,1,3,4,2.6666666666666665,Completed
+08a1034f-2303-490d-93f9-e826b8a3d7a6,3,Cashback,5,4,1,2026-10-16T09:23:37+00:00,31–45,YouTube,Often,1,3,4,2.6666666666666665,Completed
+daf518c0-89db-4a9e-8a5b-6bb1b858a1a8,1,Discount,4,5,2,2026-10-18T19:57:22+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,3,4,2.6666666666666665,Completed
+daf518c0-89db-4a9e-8a5b-6bb1b858a1a8,2,No Promotion,3,1,3,2026-10-18T13:29:45+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,3,4,2.6666666666666665,Completed
+daf518c0-89db-4a9e-8a5b-6bb1b858a1a8,3,Cashback,3,4,2,2026-10-21T00:38:47+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,3,4,2.6666666666666665,Completed
+902ab14b-6ea2-4fe0-818f-c8a236ff9da7,1,Discount,4,4,4,2026-10-21T06:10:07+00:00,Under 18,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,2,4,2.3333333333333335,Completed
+902ab14b-6ea2-4fe0-818f-c8a236ff9da7,2,Cashback,4,3,4,2026-10-16T14:07:44+00:00,Under 18,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,2,4,2.3333333333333335,Completed
+902ab14b-6ea2-4fe0-818f-c8a236ff9da7,3,No Promotion,1,4,3,2026-10-20T18:49:19+00:00,Under 18,"E-commerce apps (Amazon, Flipkart, etc.)",Rarely,1,2,4,2.3333333333333335,Completed
+98b02370-411a-496d-aac7-cd92709d3525,1,Discount,4,4,2,2026-10-17T02:55:20+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,5,4,3.6666666666666665,Completed
+98b02370-411a-496d-aac7-cd92709d3525,2,No Promotion,2,5,2,2026-10-17T12:13:51+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,5,4,3.6666666666666665,Completed
+98b02370-411a-496d-aac7-cd92709d3525,3,Cashback,5,3,3,2026-10-17T16:03:54+00:00,23–30,"E-commerce apps (Amazon, Flipkart, etc.)",Often,2,5,4,3.6666666666666665,Completed
+a7406ce0-ccae-4cbe-8ca4-447f377ca12f,1,Cashback,2,5,2,2026-10-16T16:32:32+00:00,23–30,Google/Search,Often,2,2,2,2.0,Completed
+a7406ce0-ccae-4cbe-8ca4-447f377ca12f,2,Discount,4,1,5,2026-10-18T07:08:33+00:00,23–30,Google/Search,Often,2,2,2,2.0,Completed
+a7406ce0-ccae-4cbe-8ca4-447f377ca12f,3,No Promotion,1,2,4,2026-10-18T16:10:05+00:00,23–30,Google/Search,Often,2,2,2,2.0,Completed
+7fc26476-940c-4b2b-9eb3-f601a01ae572,1,Cashback,3,3,2,2026-10-21T14:05:47+00:00,23–30,Google/Search,Rarely,5,4,3,4.0,Completed
+7fc26476-940c-4b2b-9eb3-f601a01ae572,2,No Promotion,1,2,4,2026-10-20T22:15:32+00:00,23–30,Google/Search,Rarely,5,4,3,4.0,Completed
+7fc26476-940c-4b2b-9eb3-f601a01ae572,3,Discount,4,3,4,2026-10-20T05:09:10+00:00,23–30,Google/Search,Rarely,5,4,3,4.0,Completed

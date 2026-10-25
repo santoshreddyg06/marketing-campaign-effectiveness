@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .streamlit/secrets.toml
 * (1).*
+pdf_extracted/
